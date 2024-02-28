@@ -1,44 +1,64 @@
-<nav>
-  <a
-    class="button"
-    routerLink="/about-me"
-    routerLinkActive="activebutton"
-    ariaCurrentWhenActive="page"
-  >
-    Sobre mí
-  </a>
-  <a
-    class="button"
-    routerLink="/writing"
-    routerLinkActive="activebutton"
-    ariaCurrentWhenActive="page"
-  >
-    Cuentitos
-  </a>
-  <a
-    class="button"
-    routerLink="/reviews"
-    routerLinkActive="activebutton"
-    ariaCurrentWhenActive="page"
-  >
-    Reseñas
-  </a>
-  <a
-    class="button"
-    routerLink="/social"
-    routerLinkActive="activebutton"
-    ariaCurrentWhenActive="page"
-  >
-    Instagram
-  </a>
-  <a
-    class="button"
-    routerLink="/contact"
-    routerLinkActive="activebutton"
-    ariaCurrentWhenActive="page"
-  >
-    Contacto
-  </a>
-</nav>
+<div class="navbar-container">
+  <nav>
+    <ul class="nav justify-content-start">
+      <li class="nav-item">
+        <a
+          class="router-links"
+          routerLink="/about-me"
+          routerLinkActive="activebutton"
+          ariaCurrentWhenActive="page"
+        >
+          Sobre mí
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="router-links"
+          routerLink="/writing"
+          routerLinkActive="activebutton"
+          ariaCurrentWhenActive="page"
+        >
+          Cuentitos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="router-links"
+          routerLink="/reviews"
+          routerLinkActive="activebutton"
+          ariaCurrentWhenActive="page"
+        >
+          Reseñas
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <h1>Punto & Leído</h1>
+  <nav>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a
+          class="router-links"
+          routerLink="/social"
+          routerLinkActive="activebutton"
+          ariaCurrentWhenActive="page"
+        >
+          Instagram
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="router-links"
+          routerLink="/contact"
+          routerLinkActive="activebutton"
+          ariaCurrentWhenActive="page"
+        >
+          Contacto
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+</div>
 
 <router-outlet></router-outlet>
