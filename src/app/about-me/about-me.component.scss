@@ -1,0 +1,15 @@
+.card-container{
+    display: flex;
+    justify-content: center;
+
+    .card{
+        border: none;
+        background-color: transparent;
+
+        .img-card-container{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+}
