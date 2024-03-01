@@ -15,6 +15,7 @@ export class ContactComponent {
   form: any = {
     fullname: '',
     email: '',
+    phone: '',
     comment: ''
   };
   onSubmit() {
