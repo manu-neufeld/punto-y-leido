@@ -6,6 +6,11 @@
         border: none;
         background-color: transparent;
 
+        .body-container{
+            display: flex;
+            justify-content: center;
+        }
+
         .img-card-container{
             display: flex;
             flex-direction: column;
