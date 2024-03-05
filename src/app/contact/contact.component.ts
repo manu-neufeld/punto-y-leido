@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
@@ -12,14 +13,26 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+  constructor(private http: HttpClient){}
+  
   form: any = {
-    fullname: '',
+    name: '',
     email: '',
     phone: '',
-    comment: ''
+    message: ''
   };
-  onSubmit() {
-    console.log(JSON.stringify(this.form, null, 2));
+  onSubmit(contactForm: NgForm) {
+    if (contactForm.valid) {
+      // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      // this.http.post('https://formspree.io/mleqnqbk',
+      //   { name: this.form.name, replyto: this.form.email, telephone: this.form.phone, message: this.form.message},
+      //   { 'headers': headers }).subscribe(
+      //     response => {
+      //       console.log(response);
+      //     }
+      //   );
+      this.onReset(contactForm);
+    }
   }
 
   onReset(form: NgForm): void {
