@@ -1,41 +1,69 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, NgForm, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
-    FormsModule
-  ],
+    FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  constructor(private http: HttpClient){}
-  
-  form: any = {
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  };
-  onSubmit(contactForm: NgForm) {
-    if (contactForm.valid) {
-      // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-      // this.http.post('https://formspree.io/mleqnqbk',
-      //   { name: this.form.name, replyto: this.form.email, telephone: this.form.phone, message: this.form.message},
-      //   { 'headers': headers }).subscribe(
-      //     response => {
-      //       console.log(response);
-      //     }
-      //   );
-      this.onReset(contactForm);
-    }
+
+  form: FormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    email: new FormControl(''),
+    message: new FormControl(''),
+    acceptTerms: new FormControl(false),
+  });
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        fullname: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        message: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(20),
+            Validators.maxLength(400),
+          ],
+        ],
+        acceptTerms: [false, Validators.requiredTrue],
+      },
+    );
   }
 
-  onReset(form: NgForm): void {
-    form.reset();
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.http.post('https://formspree.io/mleqnqbk',
+      { name: this.form.value.fullname, replyto: this.form.value.email, message: this.form.value.message},
+      { 'headers': headers }).subscribe(
+        (response: any) => {
+          console.log(response);
+        }
+      );
+    this.onReset();
+    
+    if (this.form.invalid) {
+     return;
+    } 
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
   }
 }
