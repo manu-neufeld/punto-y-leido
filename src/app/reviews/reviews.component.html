@@ -1,8 +1,25 @@
-<div id="retainable-rss-embed" data-rss="https://medium.com/@puntoleido/list/resenas-d0a3a038f57b"
-data-maxcols="3" 
-data-layout="grid" 
-data-poststyle="inline" 
-data-readmore="Read the rest" 
-data-buttonclass="btn btn-primary" 
-data-offset="-100">
+<div class="card text-center">
+   
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/img/prague.jpg" alt="Card image cap">            
+      </div>
+    </div>
+  </div>
 
+
+
+<div class="articles-content"> 
+    <div  *ngFor="let medium of data()">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{medium.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{medium.pubDate}}</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href={{medium.link}} class="card-link">Sigue leyendo</a>
+            </div>
+          </div>
+    </div>
+</div>
