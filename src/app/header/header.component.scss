@@ -1,17 +1,37 @@
-.navbar-container{
-    margin: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.header-container {
+    height: 165px;
+    background-color: #FB6F92;
+    margin-bottom: 20px;
 
-    .router-links{
-        text-decoration: none;
-        color: black;
-        margin: 5px;
-        
-        &:hover {
-            color: #FFC2D1;
+    .navbar-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .router-links {
+            text-decoration: none;
+            color: black;
+            margin: 5px;
+
+            &:hover {
+                color: #FFC2D1;
+            }
         }
-    }
 
+    }
+}
+
+.round-container-header {
+    position: absolute;
+    right: 0;
+    top:20%;
+    background-color: #FF8FAB;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+
+    img{
+        width: 200px;
+    }
 }
