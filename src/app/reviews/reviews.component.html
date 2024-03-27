@@ -4,10 +4,10 @@
     <div class="cols" *ngFor="let medium of data()">
 			<div class="col" ontouchstart="this.classList.toggle('hover');">
 				<div class="container">
-					<div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+					<div class="front" style="background-image: url({{medium.photo}})">
 						<div class="inner">
 							<p>{{medium.title}}</p>
-              <span>{{medium.pubDate}}</span>
+              				<span>{{medium.pubDate}}</span>
 						</div>
 					</div>
 					<div class="back">
