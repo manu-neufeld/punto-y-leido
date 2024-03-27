@@ -1,1 +1,22 @@
-<p>reviews works!</p>
+<div class="wrapper">
+  <h1>Mis publicaciones</h1>
+  <div class="articles-container">
+    <div class="cols" *ngFor="let medium of data()">
+			<div class="col" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+						<div class="inner">
+							<p>{{medium.title}}</p>
+              <span>{{medium.pubDate}}</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <a href={{medium.link}} class="card-link">Sigue leyendo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+ </div>
