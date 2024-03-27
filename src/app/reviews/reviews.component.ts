@@ -6,7 +6,7 @@ export interface mediumPub {
  title: string | undefined;
  pubDate: string | undefined;
  link: string | undefined;
- thumbnail: string | undefined
+ photo: string | undefined
 }
 @Component({
   selector: 'app-reviews',
@@ -16,7 +16,8 @@ export interface mediumPub {
   styleUrl: './reviews.component.scss'
 })
 export class ReviewsComponent {
-  data = signal<mediumPub[]>([])
+  element!: HTMLImageElement;
+  data = signal<mediumPub[]>([]);
 
   constructor(private service: MediumService){}
 
@@ -38,9 +39,16 @@ export class ReviewsComponent {
           title: pub.title,
           pubDate: pub.pubDate,
           link: pub.link,
-          thumbnail: pub.thumbnail
+          photo: this.getImgFromItem(pub.content)
         }]
       })
     });
+    console.log(this.data());
+  }
+
+  getImgFromItem(htmlString: string){
+    let regex = /<img.*?src="(.*?)"/;
+    let src = regex.exec(htmlString)![1];
+    return src as unknown as HTMLImageElement
   }
 }
