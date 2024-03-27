@@ -15,7 +15,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/about-me', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'about-me', component: AboutMeComponent },
   { path: 'writing', component: WritingComponent },
   { path: 'reviews', component: ReviewsComponent },
