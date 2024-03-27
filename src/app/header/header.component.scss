@@ -1,39 +1,49 @@
-.header-container {
+.header-container{
+    height: 165px;
+    width: 100%;
+}
+
+.header-bg {
+    position: absolute;
+    width: 100%;
+    top: 0;
     height: 165px;
     background-color: #FB6F92;
-    margin-bottom: 20px;
+    z-index: -2;
+}
 
-    .navbar-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-        .router-links {
-            text-decoration: none;
-            color: black;
-            margin: 5px;
+    .router-links {
+        text-decoration: none;
+        color: black;
+        margin: 5px;
 
-            &:hover {
-                color: #FFC2D1;
-            }
+        &:hover {
+            color: #FFC2D1;
         }
-
     }
+
 }
 
 .logo {
     position: absolute;
-    right: 325px;
+    right: 0;
     top: -5%;
-    max-width: 200px;
+    z-index: -1;
 
     img {
+        z-index: -1;
         filter: drop-shadow(0 0 25px rgb(0, 0, 0));
     }
 }
 
 @media (max-width: 500px) {
     img {
+        z-index: -1;
         transform: rotateZ(90deg);
     }
 }
