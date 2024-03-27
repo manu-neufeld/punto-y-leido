@@ -1,9 +1,21 @@
-.footer-container {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+ul li {
+  margin: 0 1.5rem 0 0;
+}
+
+a {
+  color: #787878;
+  text-decoration: none;
+}
+
+footer {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.social, .copyright {
+  margin: 1rem;
+}
+
+.social li {
+  display: inline-block;
 }
