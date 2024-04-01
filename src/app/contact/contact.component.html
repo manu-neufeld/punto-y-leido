@@ -1,104 +1,15 @@
-<!-- <div class="register-form">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label>Nombre</label>
-      <input
-        type="text"
-        formControlName="fullname"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
-      />
-      @if (submitted && f['fullname'].errors) {
-      <div class="invalid-feedback">
-        @if (f['fullname'].errors['required']) {
-        <div>Fullname is required</div>
-        }
-      </div>
-      }
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input
-        type="text"
-        formControlName="email"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
-      />
-      @if (submitted && f['email'].errors) {
-      <div class="invalid-feedback">
-        @if (f['email'].errors['required']) {
-        <div>Email is required</div>
-        } @if (f['email'].errors['email']) {
-        <div>Email is invalid</div>
-        }
-      </div>
-      }
-    </div>
-
-    <div class="form-group">
-      <label>Mensaje</label>
-      <input
-        type="text"
-        formControlName="message"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"
-      />
-      @if (submitted && f['message'].errors) {
-      <div class="invalid-feedback">
-        @if (f['message'].errors['required']) {
-        <div>Username is required</div>
-        } @if (f['message'].errors['minlength']) {
-        <div>Username must be at least 20 characters</div>
-        } @if (f['message'].errors['maxlength']) {
-        <div>Username must not exceed 400 characters</div>
-        }
-      </div>
-      }
-    </div>
-
-    
-
-    <div class="form-group form-check">
-      <input
-        type="checkbox"
-        formControlName="acceptTerms"
-        class="form-check-input"
-        [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
-      />
-      <label for="acceptTerms" class="form-check-label"
-        >I have read and agree to the Terms</label
-      >
-      @if (submitted && f['acceptTerms'].errors) {
-      <div class="invalid-feedback">Accept Terms is required</div>
-      }
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Register</button>
-      <button
-        type="button"
-        (click)="onReset()"
-        class="btn btn-warning float-right"
-      >
-        Reset
-      </button>
-    </div>
-  </form>
-</div> -->
-
 <div class="app-container">
   <div class="contact-form-container">
     <div class="contact-us">
       <div class="contact-header">
         <h1 >
-          CONTACT US
+          CONTACTA CONMIGO
         </h1>
       </div>
     </div>
     <div class="header">
-      <h1>Let's get started</h1>
-      <h2>Contact us to start your next project! </h2>
+      <h1>Empecemos</h1>
+      <h2>Rellena el formulario de contacto</h2>
     </div>
     <div class="contact-form">
       <form  [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -108,12 +19,12 @@
             class="form-control"
             formControlName="fullname"
             placeholder="Nombre"
-            [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+            [ngClass]="{ 'is-invalid':  f['fullname'].errors }"
           />
-          @if (submitted && f['fullname'].errors) {
+          @if ( f['fullname'].errors) {
           <div class="invalid-feedback">
             @if (f['fullname'].errors['required']) {
-            <div>Fullname is required</div>
+            <div>Nombre obligatorio</div>
             }
           </div>
           }
@@ -124,14 +35,14 @@
             type="text"
             class="form-control"
             formControlName="email"
-            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            [ngClass]="{ 'is-invalid':  f['email'].errors }"
           />
-          @if (submitted && f['email'].errors) {
+          @if ( f['email'].errors) {
           <div class="invalid-feedback">
             @if (f['email'].errors['required']) {
-            <div>Email is required</div>
+            <div>Email obligatorio</div>
             } @if (f['email'].errors['email']) {
-            <div>Email is invalid</div>
+            <div>Email inválido</div>
             }
           </div>
           }
@@ -142,16 +53,16 @@
             type="text"
             class="form-control"
             formControlName="message"
-            [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"
+            [ngClass]="{ 'is-invalid':  f['message'].errors }"
           >
-          @if (submitted && f['message'].errors) {
+          @if ( f['message'].errors) {
           <div class="invalid-feedback">
             @if (f['message'].errors['required']) {
-            <div>Username is required</div>
+            <div>Mensaje obligatorio</div>
             } @if (f['message'].errors['minlength']) {
-            <div>Username must be at least 20 characters</div>
+            <div>El mensaje tiene que tener al menos 20 caracteres</div>
             } @if (f['message'].errors['maxlength']) {
-            <div>Username must not exceed 400 characters</div>
+            <div>El mensaje no puede tener más de 400 caracteres</div>
             }
           </div>
           }

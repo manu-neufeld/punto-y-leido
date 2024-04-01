@@ -17,9 +17,7 @@ export class ContactComponent {
     fullname: new FormControl(''),
     email: new FormControl(''),
     message: new FormControl(''),
-    acceptTerms: new FormControl(false),
   });
-  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
@@ -36,7 +34,6 @@ export class ContactComponent {
             Validators.maxLength(400),
           ],
         ],
-        acceptTerms: [false, Validators.requiredTrue],
       },
     );
   }
@@ -46,7 +43,9 @@ export class ContactComponent {
   }
 
   onSubmit(): void {
-    this.submitted = true;
+    if (this.form.invalid) {
+     return;
+    }
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http.post('https://formspree.io/mleqnqbk',
       { name: this.form.value.fullname, replyto: this.form.value.email, message: this.form.value.message},
@@ -55,15 +54,8 @@ export class ContactComponent {
           console.log(response);
         }
       );
-    this.onReset();
+    this.form.reset();
     
-    if (this.form.invalid) {
-     return;
-    } 
   }
 
-  onReset(): void {
-    this.submitted = false;
-    this.form.reset();
-  }
 }
