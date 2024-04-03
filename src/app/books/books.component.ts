@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { NgIf, NgFor } from '@angular/common';
 import { BooksService } from '../../services/books.service';
 
 export interface Book {
@@ -12,14 +13,14 @@ export interface Book {
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [],
+  imports: [NgIf, NgFor],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss'
 })
 
 export class BooksComponent {
 
-  public booksFromShelf : Book[] = [];
+  public booksFromShelf = signal<Book[]>([])
   public dataFromService: any | undefined;
 
   public shelves: any = {
@@ -32,30 +33,32 @@ export class BooksComponent {
     myShelf: 1001
   }
 
-  constructor(private service: BooksService){
+  constructor(private service: BooksService) {
   }
 
-  ngOnInit(){
-    this.service.getBooksShelf(this.shelves.favorites).subscribe((ret: any) =>{
-      if(ret){
+  ngOnInit() {
+    this.service.getBooksShelf(this.shelves.favorites).subscribe((ret: any) => {
+      if (ret) {
         this.dataFromService = ret
         this.createShelf(this.dataFromService);
       }
     })
   }
 
-  public createShelf(data: any){
-    if(data){
-    this.booksFromShelf =  data.map((el: any) => ({
-        title: el.volumeInfo.title,
-        author: el.volumeInfo.authors[0],
-        description: el.volumeInfo.description,
-        imgLink:el.volumeInfo.imageLinks.smallThumbnail,
-        previewLink: el.volumeInfo.previewLink,
-      }));
+  public createShelf(data: any) {
+    if (data) {
+      this.booksFromShelf.update((booksSignal: any) => {
+        return booksSignal = data.map((el: any) => ({
+          title: el.volumeInfo.title,
+          author: el.volumeInfo.authors[0],
+          description: el.volumeInfo.description,
+          imgLink: el.volumeInfo.imageLinks.thumbnail,
+          previewLink: el.volumeInfo.previewLink,
+        }));
+      });
     }
-    console.log(this.booksFromShelf);
-    
+    console.log(this.booksFromShelf());
+
   }
 
 }
