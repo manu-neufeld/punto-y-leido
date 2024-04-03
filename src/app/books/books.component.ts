@@ -8,6 +8,9 @@ export interface Book {
   description: string;
   imgLink: string;
   previewLink: string;
+  publisher: string;
+  publishDate: Date;
+  categories: string;
 }
 
 @Component({
@@ -47,13 +50,16 @@ export class BooksComponent {
 
   public createShelf(data: any) {
     if (data) {
-      this.booksFromShelf.update((booksSignal: any) => {
+      this.booksFromShelf.update((booksSignal: Book[]) => {
         return booksSignal = data.map((el: any) => ({
           title: el.volumeInfo.title,
           author: el.volumeInfo.authors[0],
           description: el.volumeInfo.description,
           imgLink: el.volumeInfo.imageLinks.thumbnail,
           previewLink: el.volumeInfo.previewLink,
+          publisher : el.volumeInfo.publisher,
+          publishDate : el.volumeInfo.publishedDate,
+          categories : el.volumeInfo.categories[0],
         }));
       });
     }

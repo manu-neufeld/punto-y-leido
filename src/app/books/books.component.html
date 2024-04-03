@@ -1,13 +1,33 @@
-<div *ngFor="let book of booksFromShelf()">
-  <div class=container>
-    <div class=card>
-      <div class=image>
-        <img href="#"
-          src={{book.imgLink}}>
-      </div>
-      <div class=content>
-        <h3>{{book.title}}</h3>
-        <p>{{book.description}}</p>
+<div class="books-container">
+  <div *ngFor="let book of booksFromShelf()">
+    <div class=container>
+      <div class=card>
+        <div class="image mb-3">
+            <div class="col-md-4">
+              <img
+                src={{book.imgLink}}
+                alt="book cover"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <p class="card-text">
+                  <small class="text-muted">{{book.author}}</small>
+                </p>
+              </div>
+            </div>
+        </div>
+        <div class="info">
+          <p>{{book.publisher}}</p>
+          <p>{{book.publishDate}}</p>
+          <p>{{book.categories}}</p>
+        </div>
+        <div class="card-body content">
+          <p class="card-text">{{book.description}}</p>
+          <a href="{{book.previewLink}}" class="card-link" >Continúa leyendo</a>
+        </div>
       </div>
     </div>
   </div>
