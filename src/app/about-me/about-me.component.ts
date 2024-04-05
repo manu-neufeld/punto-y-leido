@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './about-me.component.scss'
 })
 export class AboutMeComponent {
-  aboutMeTitle:string = "¡Hola!"
-  description: string = "Soy Manuela, y estoy detrás de Punto&Leido. Además de ser programadora (que por eso me he hecho esta web tan molongui), soy una apasionada de la lectura, por lo que, en mi tiempo libre, me dedico a opinar sobre los libros que leo, y de vez en cuando, pues también me arranco a escribir. Vivo la vida con un filtro de tontería y humor, me gusta cocinar, sobre todo galletas, hago unas de avena y mantequilla de cacahuete que se te va la olla , así que si no te gusta lo que opino, o cómo escribo, pásame tu dirección y te mando una caja, asi estamos de buen humor (Bueno, si me mandas tu dirección igual también te robo todas tus posesiones) No me tomes muy en serio, y espero que disfrutes lo que comparto! Un abrazo de Koala!"
-  ironicTooltip: string = "Creo que lo de robar me ha quedado raro, así que mejor aclaro que era bromi. Ni galletas, ni delincuencia, palabrita de Scout"
-
+  aboutMeTitle:string = "¡Hola mundo literario!"
+  description: string = "Soy Manuela, una devoradora de libros y creadora de reseñas con un toque de humor y mucho amor por las letras. Me fascina sumergirme en las historias más intrincadas y los mundos más fantásticos que los autores pueden imaginar. Cuando no estoy perdida entre las páginas de un buen libro, me encontrarás en mi blog, compartiendo mis pensamientos sobre las últimas obras que han conquistado mi corazón (o lo han destrozado por completo). Desde clásicos atemporales hasta las últimas novedades, siempre estoy lista para sumergirme en una nueva aventura literaria y llevar a otros conmigo.También tengo una debilidad por la repostería,especialmente por las galletas de mantequilla y avena.Mis manos pueden manejarse bien con un libro en una y una espátula en la otra, y no hay nada como el aroma de unas galletas recién horneadas para hacer un rato con un libro sea más dulce. Soy una apasionada de las palabras, una adicta a las reseñas y una maestra de la repostería.¡Únete a mí en esta dulce travesía a través de las letras las cookies!"
 }
