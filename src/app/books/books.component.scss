@@ -1,0 +1,148 @@
+.nav-bar-container {
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .nav-pills {
+        margin-right: 1rem;
+    }
+
+    .active {
+        background-color: #B8CBE1;
+    }
+
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: content-box;
+}
+
+.container {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 1rem;
+}
+
+.container .card {
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    background-color: #FFC2D1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.container .card:hover {
+    height: 320px;
+}
+
+
+.container .card .image {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    top: -40%;
+    left: 8px;
+    background-color: #FF8FAB;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    .book-cover {
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .card-title {
+        max-height: 3rem;
+        overflow: hidden;
+    }
+}
+
+.container .card .image img {
+    max-width: 100%;
+}
+
+.container .card .info {
+    position: absolute;
+    top: 40%;
+}
+
+.container .card:hover .info {
+    position: absolute;
+    top: 40%;
+    display: none;
+}
+
+.container .card .content {
+    position: relative;
+    top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+
+}
+
+.container .card:hover .content {
+    margin-top: 3px;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+
+}
+
+a {
+    color: #FB6F92;
+
+}
+
+.button-custom {
+    background-color: #FFE5EC;
+    border-radius: 100px;
+    box-shadow: #FF8FAB 0 -25px 18px -14px inset, #FFC2D1 0 1px 2px, #FFC2D1 0 2px 4px, #FFC2D1 0 4px 8px, #FFC2D1 0 8px 16px, hsl(345, 100%, 88%) 0 16px 32px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-custom:hover {
+    box-shadow: #B8CBE1 0 -25px 18px -14px inset, #FF8FAB 0 1px 2px, #FF8FAB 0 2px 4px, #FF8FAB 0 4px 8px, #FF8FAB 0 8px 16px, #FF8FAB 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+
+    li{
+        margin-right: 1rem;
+    }
+}
