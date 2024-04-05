@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +14,7 @@ export class BooksService {
   public volumesKey: string = "/volumes?key=AIzaSyDVgtUTxsRq9GSbiB0Q5isYrHIbpDpSBn8";
 
 
-  public getBooksShelf(shelf: string): Observable<any> {
+  public getBooksShelf(shelf: number): Observable<any> {
     return this.http.get<any>(this.urlBooks + shelf + this.volumesKey).pipe(
       map((data: any) => {
         return data.items;
