@@ -25,14 +25,12 @@ export class ReviewsComponent {
   ngOnInit() {
     this.service.getMediumFeed().subscribe((ret: any) =>{
       if(ret){
-        console.log(ret);
         this.setArticles(ret.items)
       }
     })
   }
 
   private setArticles(content: any){
-    console.log(content);
     content.forEach((pub: any) => {
       this.data.update((col:any) =>{
         return [...col, {
@@ -43,7 +41,6 @@ export class ReviewsComponent {
         }]
       })
     });
-    console.log(this.data());
   }
 
   getImgFromItem(htmlString: string){

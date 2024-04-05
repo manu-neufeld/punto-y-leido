@@ -14,11 +14,9 @@ export class MediumService {
   public getMediumFeed(): Observable<any>{
     return this.http.get<any>(this.urlFeed).pipe(
       map((data: any) => {
-        console.log(data);
         return data
       }),
       catchError((err) => {
-        console.log(err);
         return of(undefined);
       })
     )

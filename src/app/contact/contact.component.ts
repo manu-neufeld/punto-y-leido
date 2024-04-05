@@ -51,7 +51,6 @@ export class ContactComponent {
       { name: this.form.value.fullname, replyto: this.form.value.email, message: this.form.value.message},
       { 'headers': headers }).subscribe(
         (response: any) => {
-          console.log(response);
         }
       );
     this.form.reset();
