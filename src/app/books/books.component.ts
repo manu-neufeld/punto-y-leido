@@ -27,14 +27,6 @@ export interface Shelf {
 })
 
 export class BooksComponent {
-
-  public booksFromShelf = signal<Book[]>([])
-  public dataFromService: any | undefined;
-
-  public activeShelf: number = 0
-
-  object = Object;
-
   public shelves: Shelf[] = [
     {
       id: 0,
@@ -66,11 +58,16 @@ export class BooksComponent {
     }
   ]
 
+  public booksFromShelf = signal<Book[]>([])
+  public dataFromService: any[] | undefined;
+
+  public activeShelf: number = 0;
+  public indexForShelf: number = 0;
   constructor(private service: BooksService) {
   }
 
   ngOnInit() {
-    this.getShelf(this.shelves[0].id);
+    this.getShelf(this.shelves[0].id, this.indexForShelf);
   }
 
   public createShelf(data: any) {
@@ -88,18 +85,25 @@ export class BooksComponent {
         }));
       });
     }
-    console.log(this.booksFromShelf());
-
   }
 
-  getShelf(shelf: number){
+  public getShelf(shelf: number, index: number){
     this.activeShelf = shelf;
-    this.service.getBooksShelf(shelf).subscribe((ret: any) => {
+    this.service.getBooksShelf(shelf, index).subscribe((ret: any) => {
       if (ret) {
-        this.dataFromService = ret
+        this.dataFromService = ret;
         this.createShelf(this.dataFromService);
       }
     })
+  }
+
+  public pagination(next: boolean){
+    if(next){
+      this.indexForShelf = this.indexForShelf + 10
+    } else {
+      this.indexForShelf = this.indexForShelf - 10
+    }
+    this.getShelf(this.activeShelf, this.indexForShelf);
   }
 
 }

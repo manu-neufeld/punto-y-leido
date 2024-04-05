@@ -5,32 +5,8 @@
     flex-direction: row;
     justify-content: center;
 
-    .nav-pills{
+    .nav-pills {
         margin-right: 1rem;
-    }
-
-    /* CSS */
-    .button-custom {
-        background-color: #FFE5EC;
-        border-radius: 100px;
-        box-shadow: #FF8FAB 0 -25px 18px -14px inset, #FFC2D1 0 1px 2px, #FFC2D1 0 2px 4px, #FFC2D1 0 4px 8px, #FFC2D1 0 8px 16px, hsl(345, 100%, 88%) 0 16px 32px;
-        cursor: pointer;
-        display: inline-block;
-        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-        padding: 7px 20px;
-        text-align: center;
-        text-decoration: none;
-        transition: all 250ms;
-        border: 0;
-        font-size: 16px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }
-
-    .button-custom:hover {
-        box-shadow: #B8CBE1 0 -25px 18px -14px inset, #FF8FAB 0 1px 2px, #FF8FAB 0 2px 4px, #FF8FAB 0 4px 8px, #FF8FAB 0 8px 16px, #FF8FAB 0 16px 32px;
-        transform: scale(1.05) rotate(-1deg);
     }
 
     .active {
@@ -136,4 +112,37 @@
 a {
     color: #FB6F92;
 
+}
+
+.button-custom {
+    background-color: #FFE5EC;
+    border-radius: 100px;
+    box-shadow: #FF8FAB 0 -25px 18px -14px inset, #FFC2D1 0 1px 2px, #FFC2D1 0 2px 4px, #FFC2D1 0 4px 8px, #FFC2D1 0 8px 16px, hsl(345, 100%, 88%) 0 16px 32px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-custom:hover {
+    box-shadow: #B8CBE1 0 -25px 18px -14px inset, #FF8FAB 0 1px 2px, #FF8FAB 0 2px 4px, #FF8FAB 0 4px 8px, #FF8FAB 0 8px 16px, #FF8FAB 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+
+    li{
+        margin-right: 1rem;
+    }
 }
